@@ -22,11 +22,16 @@ REXCVAR_DECLARE(int32_t, render_resolution);  // effects/post_effects.cpp
 
 namespace native {
 
-float RenderScaleSetting() {
-  // 720p (the game's own 1280x720), 1080p, 1440p, 4K.
-  constexpr float kScales[4] = {1.0f, 1.5f, 2.0f, 3.0f};
-  return kScales[std::clamp(int(REXCVAR_GET(render_resolution)), 0, 3)];
-}
+    float RenderScaleSetting() {
+        // Original presets plus 900p (1600 x 900).
+        constexpr float kScales[5] = {
+            1.0f, 1.5f, 2.0f, 3.0f, 1.25f
+        };
+
+        return kScales[std::clamp(
+            int(REXCVAR_GET(render_resolution)), 0, 4
+        )];
+    }
 
 namespace {
 // The multisampled depth copy's shaders (SPIR-V, compiled at build time from

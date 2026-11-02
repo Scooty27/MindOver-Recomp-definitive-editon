@@ -23,10 +23,13 @@ REXCVAR_DEFINE_INT32(smooth_cutouts, 0, "CrashMoM",
                      "Smooth edges on leaves, fences and other cut-out shapes (their alpha test becomes "
                      "alpha-to-coverage) where anti-aliasing is on, native renderer only: 0 off, 1 on")
     .range(0, 1);
+
 REXCVAR_DEFINE_INT32(render_resolution, 0, "CrashMoM",
-                     "Render resolution of the 3D scene and menus, native renderer only: 0 720p "
-                     "(original), 1 1080p, 2 1440p, 3 4K (2160p)")
-    .range(0, 3);
+    "Render resolution of the 3D scene and menus, native renderer only: 0 720p "
+    "(original), 1 1080p, 2 1440p, 3 4K (2160p), 4 900p (1600x900)")
+    .range(0, 4);
+
+
 REXCVAR_DEFINE_INT32(motion_blur, 0, "CrashMoM",
                      "Motion blur, the port's own (the original has none), native renderer only: "
                      "0 off, 1 low, 2 medium, 3 high")
