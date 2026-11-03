@@ -513,15 +513,25 @@ Row MotionBlurRow() {
 
 // RENDER RESOLUTION (findings/45): how many pixels the native renderer draws
 // the game with (its surfaces x 1 / 1.5 / 2 / 3), native only.
+
 Row RenderResolutionRow() {
-  Row r = LevelRow(tr(u"Resolution"), "render_resolution",
-                   {tr(u"720p (original)"), tr(u"1080p"), tr(u"1440p"), tr(u"4K")},
-                   {tr(u"Drawn at 1280 x 720, like the Xbox 360."),
-                    tr(u"Drawn at 1920 x 1080: sharper on a Full HD screen."),
-                    tr(u"Drawn at 2560 x 1440: sharper still, heavier on your graphics card."),
-                    tr(u"Drawn at 3840 x 2160: the sharpest picture, the heaviest on your graphics card.")});
-  NeedsNative(r);
-  return r;
+    Row r = LevelRow(tr(u"Resolution"), "render_resolution",
+        {
+            tr(u"720p (original)"),
+            tr(u"1080p"),
+            tr(u"1440p"),
+            tr(u"4K"),
+            tr(u"900p")
+        },
+        {
+            tr(u"Draw at 1280 x 720, like the Xbox 360."),
+            tr(u"Draw at 1920 x 1080: sharper on a Full HD screen."),
+            tr(u"Draw at 2560 x 1440: sharper still, heavier on your graphics card."),
+            tr(u"Draw at 3840 x 2160: the sharpest picture, the heaviest on your graphics card."),
+            tr(u"Draw at 1600 x 900: a balance between 720p and 1080p.")
+        });
+        NeedsNative(r);
+        return r;
 }
 
 // ANTI-ALIASING (findings/35): the MSAA sample count of the game's
